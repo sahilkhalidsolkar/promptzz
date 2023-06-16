@@ -1,6 +1,6 @@
 "use server"
 import React from 'react'
-import Profile from '@components/profile'
+import Profile from '@components/Profile'
 
 
 async function getData(otherId) {
