@@ -22,13 +22,13 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
-        <Link href={post.creator._id==session?.user.id ? '/profile':`/other-profile/${post.creator._id}`}
+        <Link href={post?.creator?._id==session?.user.id ? '/profile':`/other-profile/${post?.creator?._id}`}
           className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
          
         >
           
           <Image
-            src={post.creator.image}
+            src={post?.creator?.image}
             alt='user_image'
             width={40}
             height={40}
@@ -37,10 +37,10 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
           <div className='flex flex-col'>
             <h3 className='font-satoshi font-semibold text-gray-900'>
-              {post.creator.username}
+              {post?.creator?.username}
             </h3>
             <p className='font-inter text-sm text-gray-500'>
-              {post.creator.email}
+              {post?.creator?.email}
             </p>
           </div>
         </Link>
@@ -48,11 +48,11 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         <div className='copy_btn' onClick={handleCopy}>
           <Image
             src={
-              copied === post.prompt
+              copied === post?.prompt
                 ? "/assets/icons/tick.svg"
                 : "/assets/icons/copy.svg"
             }
-            alt={copied === post.prompt ? "tick_icon" : "copy_icon"}
+            alt={copied === post?.prompt ? "tick_icon" : "copy_icon"}
             width={12}
             height={12}
           />
