@@ -7,7 +7,7 @@ const Feed = () => {
   const [filteredPost, setFilteredPost] = useState([])
   useEffect(() => {
     const fetchPosts=async()=>{
-      const response =await fetch('/api/prompt' ,{ cache: 'no-store' })
+      const response =await fetch('/api/prompt' ,{ next: {revalidate:0} })
       const data=await response.json()
       setPosts(data)
     }
@@ -51,7 +51,7 @@ const Feed = () => {
       </form>
      
       <PromptCardList
-      data={searchText.length>0? filteredPost : posts}
+      data={searchText.length>0 ? filteredPost : posts}
       handleTagClick={handleTagClick}
       />
     </section>
