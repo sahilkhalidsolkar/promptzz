@@ -13,8 +13,10 @@ const Feed = () => {
     }
     
     fetchPosts()
+  console.log('inside',posts)
+
   }, [])
-  console.log(posts)
+  console.log('outside',posts)
   useEffect(() => {
     console.log('running search text')
     let filteredPost=posts.filter(p=>{
