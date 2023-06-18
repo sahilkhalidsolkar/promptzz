@@ -14,6 +14,7 @@ const Feed = () => {
     
     fetchPosts()
   }, [])
+  console.log(posts)
   useEffect(() => {
     console.log('running search text')
     let filteredPost=posts.filter(p=>{
